@@ -21,7 +21,6 @@ add_executable(testFit main.cc)
 target_link_libraries(testFit PRIVATE SinPdf)
 
 # test
-enable_testing()
 set (case_name test_${case_name})
 add_executable(testGooFit test.cc)
 target_link_libraries(testGooFit GooFit::goofit_lib SinPdf gtest_main)
