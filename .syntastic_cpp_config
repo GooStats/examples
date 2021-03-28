@@ -1,0 +1,2 @@
+-I../build_examples/_deps/goofit-src/include
+-I../build_examples/_deps/goostats-src/Stat
