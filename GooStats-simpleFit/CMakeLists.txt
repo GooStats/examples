@@ -11,12 +11,10 @@ target_link_libraries(GooStats-simpleFit-lib GooStatsLib)
 add_executable(GooStats-simpleFit main.cc)
 target_link_libraries(GooStats-simpleFit GooStats-simpleFit-lib)
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/toyMC.cfg DESTINATION ${CMAKE_INSTALL_SYSCONFDIR})
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data DESTINATION ${CMAKE_INSTALL_DATADIR})
+file(COPY toyMC.cfg DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(testGooStatstest test.cc)
 target_link_libraries(testGooStatstest GooStats-simpleFit-lib gtest_main)
 add_test(NAME testGooStatstest
-  COMMAND $<TARGET_FILE:testGooFittest>
-  WORKING_DIRECTORY
-  ${CMAKE_CURRENT_LIST_DIR})
+        COMMAND $<TARGET_FILE:testGooStatstest>)
