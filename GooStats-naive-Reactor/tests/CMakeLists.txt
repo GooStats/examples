@@ -10,6 +10,8 @@ if(COVERAGE OR DEFINED ENV{COVERAGE})
   target_compile_options(autoTest PRIVATE --coverage)
   target_link_libraries(autoTest PRIVATE --coverage)
 endif()
+file(COPY ../data_recE.cfg DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ../data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
 add_test(NAME    autoTest
-  COMMAND autoTest
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..)
+  COMMAND autoTest)

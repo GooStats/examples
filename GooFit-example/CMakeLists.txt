@@ -13,6 +13,4 @@ target_link_libraries(testGooFit PRIVATE SinPdf fit)
 add_executable(testGooFittest test.cc)
 target_link_libraries(testGooFittest SinPdf fit gtest_main)
 add_test(NAME testGooFittest
-  COMMAND $<TARGET_FILE:testGooFittest>
-  WORKING_DIRECTORY
-  ${PROJECT_BINARY_DIR})
+        COMMAND $<TARGET_FILE:testGooFittest>)
