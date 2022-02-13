@@ -23,15 +23,15 @@
 #include "NMOTest.h"
 
 int main (int argc, const char* argv[]) {
-  AnalysisManager *ana = new AnalysisManager();
-  InputManager *inputManager = new InputManager(argc,argv);
+  auto ana = new AnalysisManager();
+  auto inputManager = new InputManager(argc,argv);
   InputBuilder *builder = new ReactorInputBuilder();
   builder->installSpectrumBuilder(new ReactorSpectrumBuilder());
   inputManager->setInputBuilder(builder);
 
-  GSFitManager *gsFitManager = new GSFitManager();
+  auto gsFitManager = new GSFitManager();
 
-  OutputManager *outManager = new OutputManager();
+  auto outManager = new OutputManager();
   outManager->setOutputBuilder(new SimpleOutputBuilder());
 
   StatModule::setup(inputManager);
@@ -41,12 +41,12 @@ int main (int argc, const char* argv[]) {
   PlotManager *plotManager = new SimplePlotManager();
   outManager->setPlotManager(plotManager);
 
-  PrepareData *data = new PrepareData();
-  SimpleFit *fit = new SimpleFit();
-  NMOTest *nmo = new NMOTest();
-  ScanPar *scan = new ScanPar();
-  CorrelationManager *correlationManager = new CorrelationManager();
-  ContourManager *contourManager = new ContourManager();
+  auto data = new PrepareData();
+  auto fit = new SimpleFit();
+  auto nmo = new NMOTest();
+  auto scan = new ScanPar();
+  auto correlationManager = new CorrelationManager();
+  auto contourManager = new ContourManager();
 
   ana->registerModule(inputManager);
   ana->registerModule(data);
